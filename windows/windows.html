@@ -1,0 +1,318 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name=”viewport” content=”width=device-width, initial-scale=1, height=device-height, viewport-fit=cover”>
+        <title>Windows 10</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            window.console = window.console || function(t) {};
+        </script>
+        <script>
+            if (document.location.search.match(/type=embed/gi)) {
+              window.parent.postMessage("resize", "*");
+            }
+        </script>
+    </head>
+    <body translate="no" data-new-gr-c-s-check-loaded="14.1028.0" data-gr-ext-installed="" class="on">
+        <div id="window" class="window">
+            <div class="icons" id="icons">
+                <div class="icon-computer text-center" id="icon-profile">
+                    <img src="icons/profile.png" class="img-responsive">
+                    <p>Profile</p>
+                </div>
+                <div class="icon-computer text-center" id="icon-skills">
+                    <img src="icons/skills.png" class="img-responsive">
+                    <p>Skills</p>
+                </div>
+                <div class="icon-computer text-center" id="icon-achievements">
+                    <img src="icons/achievements.png" class="img-responsive">
+                    <p>Feats</p>
+                </div>
+                <div class="icon-computer text-center" id="icon-projects">
+                    <img src="icons/projects.png" class="img-responsive">
+                    <p>Projects</p>
+                </div>
+            </div>
+            <div class="overlay-computer" id="overlay-profile" style="width: 80%; height:80%; left: 5%; top: 1%;">
+                <div class="fluid-container">
+                    <div class="first-row-win" id="first-row-win" style="border: 1px solid gray;">
+                        <div class="left">
+                            <i class="fa fa-user"></i>
+                            <span>Profile</span>
+                        </div>
+                        <div class="right">
+                            <i class="fa fa-window-minimize" id="maxi-profile"></i>
+                            <i class="fa fa-window-restore" id="restore-profile" style="display:none;"></i>
+                            <i class="fa fa-window-maximize"  id="upper-profile"></i>
+                            <i class="fa fa-times" id="close-profile"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="second-row-win">
+                        <br/>
+                    </div>
+                    <div class="third-row-win">
+                        <div class="iframe-container"> 
+                            <iframe class="responsive-iframe" src="details/about/about.html" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="resizer" id="resizer-profile"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="overlay-computer" id="overlay-skills" style="width: 80%; height:80%; left: 5%; top: 1%;">
+                <div class="fluid-container">
+                    <div class="first-row-win" id="first-row-win" style="border: 1px solid gray;">
+                        <div class="left">
+                            <i class="fa fa-user"></i>
+                            <span>Skills</span>
+                        </div>
+                        <div class="right">
+                            <i class="fa fa-window-minimize" id="maxi-skills"></i>
+                            <i class="fa fa-window-restore" id="restore-skills" style="display:none;"></i>
+                            <i class="fa fa-window-maximize" id="upper-skills"></i>
+                            <i class="fa fa-times" id="close-skills"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="second-row-win">
+                        <br/>
+                    </div>
+                    <div class="third-row-win">
+                        <div class="third-row-win">
+                            <div class="iframe-container"> 
+                                <iframe class="responsive-iframe" src="details/skills/skills.html" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resizer" id="resizer-skills"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="overlay-computer" id="overlay-achievements" style="width: 80%; height:80%; left: 5%; top: 1%;">
+                <div class="fluid-container">
+                    <div class="first-row-win" id="first-row-win" style="border: 1px solid gray;">
+                        <div class="left">
+                            <i class="fa fa-user"></i>
+                            <span>Achievements</span>
+                        </div>
+                        <div class="right">
+                            <i class="fa fa-window-minimize" id="maxi-achievements"></i>
+                            <i class="fa fa-window-restore" id="restore-achievements" style="display:none;"></i>
+                            <i class="fa fa-window-maximize" id="upper-achievements"></i>
+                            <i class="fa fa-times" id="close-achievements"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="second-row-win">
+                        <br/>
+                    </div>
+                    <div class="third-row-win">
+                        <div class="third-row-win">
+                            <div class="iframe-container"> 
+                                <iframe class="responsive-iframe" src="details/achievements/achievements.html" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resizer" id="resizer-achievements"></div>
+            </div>
+            <div class="overlay-computer" id="overlay-projects" style="width: 80%; height:80%; left: 5%; top: 1%;">
+                <div class="fluid-container">
+                    <div class="first-row-win" id="first-row-win" style="border: 1px solid gray;">
+                        <div class="left">
+                            <i class="fa fa-user"></i>
+                            <span>Projects</span>
+                        </div>
+                        <div class="right">
+                            <i class="fa fa-window-minimize" id="maxi-projects"></i>
+                            <i class="fa fa-window-restore" id="restore-projects" style="display:none;"></i>
+                            <i class="fa fa-window-maximize" id="upper-projects"></i>
+                            <i class="fa fa-times" id="close-projects"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="second-row-win">
+                        <br/>
+                    </div>
+                    <div class="third-row-win">
+                        <div class="third-row-win">
+                            <div class="iframe-container"> 
+                                <iframe class="responsive-iframe" src="details/projects/projects.html" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resizer" id="resizer-projects"></div>
+            </div>
+            <div class="start-window-fade hidden-start" id="start-window-fade" ></div>
+            <div class="start-window hidden-start" id="start-window">
+                <div class="fluid-container" id="container-start">
+                    <div class="row">
+                        <div class="col-xs-2 first-column">
+                            <div class="icon-bottom" id="power" onclick="powerOff()">
+                                <i class="fa fa-power-off  fa-1x"></i>
+                            </div>
+                            <div class="icon-bottom open-icon-list">
+                                <i class="fa fa-bars fa-1x"></i>
+                            </div>
+                        </div>
+                        <div class="col-xs-10 second-column">
+                            <div class="wrap-scroll">
+                                <div class="head-med">
+                                    <u><strong><small>Languages</small></strong></u>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/HTML_Logo.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">HTML</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/8b61de4c84033266e15317a6eb9fda2d-css3.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">CSS</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/Javascript-shield.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">JavaScript Vanilla</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/bootstrap-4.svg" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">Bootstrap</small>
+                                    </div>
+                                </div>
+                                <div class="head-med">
+                                    <u><strong><small>Tools used</small></strong></u>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="icons/win11.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">Windows 11</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/chrome1600.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">Google Chrome</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="icons/st.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">Sublime Text</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                        <img class="media-object" src="https://mohamedelghandour.github.io/windows-10/img/github-desktop-icon.png" width="35" height="35" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <small class="media-heading">Github</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="nav navbar-inverse navbar-fixed-bottom footer text-center">
+                <div class="fluid-container">
+                    <div class="row">
+                        <div class="left">
+                            <div class="col-xs-1-me">
+                                <div class="icon-bottom strat-win" id="strat-win">
+                                    <i class="fa fa-windows fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-1-me" id="taskbar-profile" style="display: none;">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-user fa-2x" style="transform: rotate(0deg);"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-1-me" id="taskbar-skills" style="display: none;">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-cog fa-2x" style="transform: rotate(0deg);"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-1-me" id="taskbar-achievements" style="display: none;">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-trophy fa-2x" style="transform: rotate(0deg);"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-1-me" id="taskbar-projects" style="display: none;">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-lightbulb-o fa-2x"></i>
+                                </div>
+                            </div>
+                            <span class=".clearfix"></span>
+                        </div>
+                        <div class="right">
+                            <div class="col-xs-1-me" id="show-window">
+                            </div>
+                            <div class="col-xs-1-me">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-bell fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="date col-xs-1-me">
+                                <span id="time">9:22:33 AM</span>
+                                <span id="history">2021/08/18</span>
+                            </div>
+                            <div class="col-xs-1-me">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-volume-up  fa-2x"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-1-me">
+                                <div class="icon-bottom">
+                                    <i class="fa fa-chevron-up fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

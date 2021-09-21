@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>VK's Portfolio</title>
+
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	
+</head>
+
+<body > 
+		<div class="header">
+  			<h1 class="underline">VK's Portfolio</h1>
+		</div>
+	<section>
+		<div class="container">
+			<img id="img" src="setup.png" alt="Avatar" width="1920" height="1080" usemap="#image-map">
+			<map class="map" name="image-map">
+			    <area class="areas" id="Monitor" target="" alt="Monitor" title="Monitor" coords="734,430,825,426,963,428,1095,430,1165,433,1165,521,1165,589,1165,675,1037,674,885,674,739,670" shape="poly">
+			    <area class="areas" id="Globe" target="" alt="Globe" title="Globe" coords="1439,639,66" shape="circle">
+			    <area class="areas" id="Frame" target="" alt="Frame" title="Frame" coords="588,464,422,345" shape="rect">
+			    <area class="areas" id="Mobile" target="" alt="Mobile" title="Mobile" coords="1238,764,1287,765,1292,799,1246,799" shape="poly">
+			    <area class="areas" id="Clock" target="" alt="Clock" title="Clock" coords="398,208,75" shape="circle">
+			</map>
+			<div id="all-tooltip" class="all-tooltip"></div>
+		</div>
+		<div class="modal">
+			<div class="outer">
+				<div class="inner">
+    				<iframe width="560" height="315" src="./windows\windows.html" frameborder="0" allowfullscreen></iframe>
+  				</div>
+			</div>
+		</div>
+	</section>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="./jquery.rwdImageMaps.min.js"></script>
+	<script src="./jquery.maphilight.min.js"></script>
+	<script src="./app.js"></script>
+
+</body>
+</html>
