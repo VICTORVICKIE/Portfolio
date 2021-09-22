@@ -33,7 +33,6 @@ section{
   max-width:80% ;
   margin: 0 auto;
   position: absolute;
-  top: 100px;
   top: 9.5%;
   border-radius: 10px;
 
@@ -49,9 +48,11 @@ section{
   .container{
     max-width: 100%;
     width: 95%;
-
   }
 
+  body{
+      overflow: visible;
+  }
 }
 
 .areas:hover {
