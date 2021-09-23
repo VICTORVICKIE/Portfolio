@@ -11,7 +11,7 @@ console_text(words = ["VK's Portfolio", "VK's Résumé"], id = "Title",
 											["rgb(224,255,255)", "rgb(0,255,255)"], 
 											["rgb(201,242,39)", "rgb(242,161,39)"]]);
 
-console_text(words = ["This is an Interactive Image, Click over the Objects to know about me."], id = "info", colors = ['#000']);
+console_text(words = ["This is an Interactive Image, Click over the Objects to know about me. Responsive Version Coming Soon for small devices!"], id = "info", colors = ['#000']);
 
 function console_text(words, id, colors, wait = false) {
   if (colors === undefined) colors = ['#000'];
@@ -116,6 +116,14 @@ const locations = {"Globe":["57%", "73.5%", "top"],
 								   "Clock":["11%", "20%", "top"]
 									}
 
+const contents = {"Globe": "Villivakkam, Chennai, TN, India",
+								   "Frame":"My Father, N Saravana Kumar, <br/> Parlay's Business Sub-Dealer",
+								   "Monitor":"",
+								   "Mobile":"Contact : +91-8056113969 <br/> Email : vigneshkumar.s.2018.aero@rajalakshmi.edu.in",
+								   "Clock":"Date of Birth : 02 / 09 / 2000"
+
+}
+
 const tooltips_array = [];
 
 for(area of map.children){
@@ -161,6 +169,13 @@ for (let area of map.children){
 	pin_div.classList.add(locations[area_name][2]);
 }
 
+const content_tag = document.querySelectorAll(".content");
+content_tag.forEach(tag => {
+	console.log(tag);
+	id = tag.querySelector('p').textContent;
+	console.log(id);
+	tag.innerHTML = contents[id];
+})
 const tooltip_content = document.querySelectorAll('.tooltip-content .content');
 
 const tooltips = document.querySelectorAll('.all-tooltip .tooltip');

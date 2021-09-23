@@ -33,7 +33,7 @@ section{
   max-width:80% ;
   margin: 0 auto;
   position: absolute;
-  top: 9.5%;
+  top: 0;
   border-radius: 10px;
 
 }
@@ -136,7 +136,7 @@ section{
   padding: 30px;
   border-radius:8px;
   width: 90vw;
-  max-width: 300px;
+  max-width: 420px;
   opacity: 0;
   pointer-events: none;
    /*left: -50%; */
@@ -170,16 +170,6 @@ section{
 
 /* Media Query */
 
-@media (max-width: 768px){
-  .tooltip .tooltip-content{
-    flex-direction: column;
-    max-width: 300px;
-  }
-  .tooltip .tooltip-content .content,
-  .tooltip .tooltip-content .img{
-    width: 100%;
-  }
-}
 
 .hidden {
   opacity:0;
@@ -215,4 +205,34 @@ section{
   max-width: 300px;
   right: 1%;
   top: 1.5%;
+}
+
+
+.menu {
+  height: 25%;
+  float: top;
+  padding: 15px;
+}
+
+.main {
+  height: 75%;
+  float: top;
+  padding: 15px;
+  position: relative;
+}
+@media all and (max-width: 768px){
+  .tooltip .tooltip-content{
+    flex-direction: column;
+    max-width: 300px;
+  }
+  .tooltip .tooltip-content .content,
+  .tooltip .tooltip-content .img{
+    width: 100%;
+  }
+
+  .info{
+    right: 17.5%;
+    top: 100%;
+  }
+
 }
