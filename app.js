@@ -9,7 +9,7 @@ console_text(words = ["VK's Portfolio", "VK's Résumé"], id = "Title",
 											["hsl(98, 100%, 62%)", "hsl(204, 100%, 59%)"],
 											["hsl(20, 87%, 63%)", "hsl(345, 85%, 67%)"],
 											["rgb(224,255,255)", "rgb(0,255,255)"], 
-											["rgb(201,242,39)", "rgb(242,161,39)"]], wait = true);
+											["rgb(201,242,39)", "rgb(242,161,39)"]]);
 
 console_text(words = ["This is an Interactive Image, Click over the Objects to know about me. Responsive Version Coming Soon for small devices!"], id = "info", colors = ['#000'], wait = true);
 
@@ -252,17 +252,19 @@ tooltips.forEach(tooltip => {
 
 function media_query(query) {
   var iframe = document.querySelector("#iframe");
+  var iframe_container = document.querySelector('.iframe-container');
   if (query.matches) {
-  	// console.log("Mobile", iframe);
   	iframe.src = "./mobile/mobile.html"
-  	iframe.style.cssText = "top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border: none;"
+  	iframe_container.style.cssText = "top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border-radius: 25px;"
+  	iframe.style.cssText = "width: 100%; height: 100%;  position: absolute; border: none;"
   	// iframe.style.cssText = "top: 2.5%; left: 10.5%; bottom: 0; right: 0; width: 80.75%; height: 95.5%;  position: absolute; border: none;"
 
 
   } else {
-    console.log("Not Mobile");
   	iframe.src = "./windows/windows.html"
-  	iframe.style.cssText = "  top: 19.9%; left: 25.90%; bottom: 0; right: 0; width: 47%; height: 48.9%;  position: absolute; border: none;"
+  	iframe_container.style.cssText = "top: 19.9%; left: 25.90%; bottom: 0; right: 0; width: 47%; height: 48.9%;  position: absolute;"
+  	iframe.style.cssText = "width: 100%; height: 100%;  position: absolute; border: none;"
+
 	}
 }
 
