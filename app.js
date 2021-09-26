@@ -255,7 +255,9 @@ function media_query(query) {
   if (query.matches) {
   	// console.log("Mobile", iframe);
   	iframe.src = "./mobile/mobile.html"
-  	iframe.style.cssText = "  top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border: none;"
+  	iframe.style.cssText = "top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border: none;"
+  	// iframe.style.cssText = "top: 2.5%; left: 10.5%; bottom: 0; right: 0; width: 80.75%; height: 95.5%;  position: absolute; border: none;"
+
 
   } else {
     console.log("Not Mobile");
@@ -268,4 +270,5 @@ var query = window.matchMedia("(max-width: 768px)")
 media_query(query)
 query.addListener(media_query)
 
-// iframe.style.cssText = "  top: 11.5vh; left: 15vw; bottom: 0; right: 0; width: 72.5vw; height: 80vh;"
+//   iframe.style.cssText = "top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border: none;"
+
