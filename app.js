@@ -9,9 +9,9 @@ console_text(words = ["VK's Portfolio", "VK's Résumé"], id = "Title",
 											["hsl(98, 100%, 62%)", "hsl(204, 100%, 59%)"],
 											["hsl(20, 87%, 63%)", "hsl(345, 85%, 67%)"],
 											["rgb(224,255,255)", "rgb(0,255,255)"], 
-											["rgb(201,242,39)", "rgb(242,161,39)"]]);
+											["rgb(201,242,39)", "rgb(242,161,39)"]], wait = true);
 
-console_text(words = ["This is an Interactive Image, Click over the Objects to know about me. Responsive Version Coming Soon for small devices!"], id = "info", colors = ['#000']);
+console_text(words = ["This is an Interactive Image, Click over the Objects to know about me. Responsive Version Coming Soon for small devices!"], id = "info", colors = ['#000'], wait = true);
 
 function console_text(words, id, colors, wait = false) {
   if (colors === undefined) colors = ['#000'];
@@ -86,12 +86,16 @@ const modal = document.querySelector('.modal');
 const display = document.querySelector('.outer');
 const container = document.querySelector('.container');
 const header = document.querySelector('#Title');
+const underscore = document.querySelector('.console-underscore');
+var image = document.querySelector('.inner');
 
 monitor.addEventListener('click', (e) => {
 	modal.classList.add('open');
 	display.classList.add('open');
 	container.classList.add('open');
 	header.style.opacity = 0;
+	underscore.style.opacity = 0;
+	console.log(image.clientWidth, image.clientHeight);
 
 });
 
@@ -101,6 +105,7 @@ document.querySelector('body').addEventListener('click', (e) => {
 		display.classList.remove('open');
 		container.classList.remove('open');
 		header.style.opacity = 1;
+		underscore.style.opacity = 1;
 
 	}
 });
@@ -169,13 +174,14 @@ for (let area of map.children){
 	pin_div.classList.add(locations[area_name][2]);
 }
 
+
 const content_tag = document.querySelectorAll(".content");
 content_tag.forEach(tag => {
-	console.log(tag);
 	id = tag.querySelector('p').textContent;
-	console.log(id);
 	tag.innerHTML = contents[id];
 })
+
+
 const tooltip_content = document.querySelectorAll('.tooltip-content .content');
 
 const tooltips = document.querySelectorAll('.all-tooltip .tooltip');
@@ -191,51 +197,37 @@ function content_position(){
     const pin = tooltip.querySelector('.pin');
     const content = tooltip.querySelector('.tooltip-content')
     const arrow = tooltip.querySelector('.arrow');
-    if (pin.classList.contains('bottom'))
-    {
-    	arrow.style.borderBottomColor = "rgb(255, 255, 255)";
+    var content_height = 0;
+			if (pin.classList.contains('bottom'))
+			{
+				arrow.style.borderBottomColor = "rgb(255, 255, 255)";
+				content_height = 30;
+			} 
+
+			else if (pin.classList.contains('top'))
+			  {
+			  	arrow.style.borderTopColor = "rgb(255, 255, 255)";
+			  	arrow.style.top = content.offsetHeight + (content.offsetHeight * 0.20) + 'px';
+			  	content_height = -content.offsetHeight;
+			  }
+
     	if (pin.offsetLeft + content.offsetWidth / 2 > fullDiv.offsetWidth) {
           const extraLeft = fullDiv.offsetWidth - (pin.offsetLeft + content.offsetWidth / 2);
           content.style.left = pin.offsetLeft - content.offsetWidth / 2 + extraLeft - 30+ 'px';
-          content.style.top = pin.offsetTop + 30 + 'px';
+          content.style.top = pin.offsetTop + content_height + 'px';
         } 
     
         else if (pin.offsetLeft + container.offsetLeft < content.offsetWidth / 2 ){
           content.style.left = - container.offsetLeft +'px';
-          content.style.top = pin.offsetTop + 30 + 'px';
+          content.style.top = pin.offsetTop + content_height + 'px';
         } 
     
         else {
           content.style.left = pin.offsetLeft - content.offsetWidth / 2 + 'px';
-          content.style.top = pin.offsetTop + 30 + 'px';
+          content.style.top = pin.offsetTop + content_height + 'px';
         }
         arrow.style.left = pin.offsetLeft - content.offsetLeft + pin.offsetWidth/2 + 'px';
-      }
-      else if (pin.classList.contains('top'))
-      {
-	    	arrow.style.borderTopColor = "rgb(255, 255, 255)";
-	    	arrow.style.top = content.offsetHeight + (content.offsetHeight * 0.18) + 'px';
-
-      	if (pin.offsetLeft + content.offsetWidth / 2 > fullDiv.offsetWidth) {
-          const extraLeft = fullDiv.offsetWidth - (pin.offsetLeft + content.offsetWidth / 2);
-          content.style.left = pin.offsetLeft - content.offsetWidth / 2 + extraLeft - 30+ 'px';
-          content.style.top = pin.offsetTop - content.offsetHeight + 'px';
-        } 
-    
-        else if (pin.offsetLeft + container.offsetLeft < content.offsetWidth / 2 ){
-          content.style.left = - container.offsetLeft +'px';
-          content.style.top = pin.offsetTop - content.offsetHeight + 'px';
-        } 
-    
-        else {
-          content.style.left = pin.offsetLeft - content.offsetWidth / 2 + 'px';
-          content.style.top = pin.offsetTop - content.offsetHeight + 'px';
-        }
-        arrow.style.left = pin.offsetLeft - content.offsetLeft + pin.offsetWidth/2 + 'px';
-
-
-      }
-  })
+  });
 }
 
 tooltips.forEach(tooltip => {
@@ -256,3 +248,24 @@ tooltips.forEach(tooltip => {
 		tooltip.classList.remove("active");
 	})
 })
+
+
+function media_query(query) {
+  var iframe = document.querySelector("#iframe");
+  if (query.matches) {
+  	// console.log("Mobile", iframe);
+  	iframe.src = "./mobile/mobile.html"
+  	iframe.style.cssText = "  top: 8.5%; left: 15.5%; bottom: 0; right: 0; width: 70.75%; height: 86.5%;  position: absolute; border: none;"
+
+  } else {
+    console.log("Not Mobile");
+  	iframe.src = "./windows/windows.html"
+  	iframe.style.cssText = "  top: 19.9%; left: 25.90%; bottom: 0; right: 0; width: 47%; height: 48.9%;  position: absolute; border: none;"
+	}
+}
+
+var query = window.matchMedia("(max-width: 768px)")
+media_query(query)
+query.addListener(media_query)
+
+// iframe.style.cssText = "  top: 11.5vh; left: 15vw; bottom: 0; right: 0; width: 72.5vw; height: 80vh;"

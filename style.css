@@ -101,16 +101,10 @@ section{
   background: url("monitor.png") no-repeat center /contain;
 }
 
-.inner iframe {
+/*.inner iframe {
   position: absolute;
-  top: 19.9%;
-  left: 25.90%;
-  bottom: 0;
-  right: 0;
-  width: 47%;
-  height: 48.9%;
   border: none;
-}
+}*/
 
 .areas:hover {
   cursor: pointer;
@@ -235,4 +229,14 @@ section{
     top: 100%;
   }
 
+  .inner {
+  padding-top: 175%;
+  background: url("mobile.png") no-repeat center /contain;
 }
+
+}
+
+/*.iframe-wrap{
+    border-radius: 25px;
+    width: 100%;
+}*/

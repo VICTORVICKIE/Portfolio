@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Cell Phone</title>
+  
+  
+  
+  
+<style>
+body {
+  user-select: none;
+  background-color: #333;
+  overflow-x: hidden;
+}
+
+.phone-body {
+  background-color: silver;
+  width: 375px;
+  border: 2px solid grey;
+  height: 525px;
+  margin: 0 auto;
+  margin-top: calc(80vh - 460px);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: default;
+  padding-top: 10px;
+}
+
+#screen {
+  background-color: black;
+  position: absolute;
+  width: 355px;
+  margin: auto;
+  height: 480px;
+  padding-left: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+}
+
+.company {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 14pt;
+  text-align: center;
+  color: #666;
+  font-family: Monospace;
+}
+
+#home {
+  margin: 0 auto;
+  margin-top: 490px;
+  width: 65px;
+  height: 25px;
+  background-color: silver;
+  border: 1px solid grey;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 5px grey;
+}
+
+#home:active {box-shadow: 0 0 5px grey inset}
+
+#lock-screen {
+  display: none;
+  font-size: 22pt;
+  color: white;
+  text-align: center;
+  font-family: monospace;
+  margin-top: 100px;
+}
+
+#pin {
+  outline: none;
+  font-size: 18pt;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#on-screen {
+  display: none;
+  width: 105.7%;
+  margin-left: -20px;
+  border-radius: 10px;
+  margin-top: 370px;
+  height: 80px;
+  z-index: 100;
+}
+
+#home-screen {display: none}
+
+#home-screen #arr-left {
+  width: 50px;
+  position: absolute;
+  margin-top: 175px;
+  margin-left: -20px;
+  cursor: pointer;
+}
+
+#home-screen #arr-right {
+  width: 50px;
+  position: absolute;
+  margin-top: 175px;
+  margin-left: 305px;
+  cursor: pointer;
+}
+
+#on-screen .icon {
+  width: 70px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: auto;
+  cursor: pointer;
+}
+
+#time {
+  font-family: Segoe UI;
+  text-align: left;
+  margin-left: 20px;
+  font-size: 48pt;
+  margin-top: -60px;
+  margin-bottom: 50px;
+}
+
+#contact-screen {display: none}
+
+#call-screen {display: none}
+
+.contact-title {
+  float: left;
+  margin-top: 0px;
+  margin-left: -10px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.contacts {
+  width: 100%;
+  margin-left: -10px;
+}
+
+.contacts .name {
+  font-size: 12pt;
+  text-align: left;
+}
+
+.contacts .number {
+  font-size: 12pt;
+  text-align: left;
+}
+
+#textNum {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.contact-add {
+  width: 50px;
+  cursor: pointer;
+  height: auto;
+}
+
+.newName,
+.newNumber {
+  width: 87px
+}
+
+.dial-nums {
+  width: 100%;
+  margin-left: -10px;
+}
+
+.dial-nums,
+.dial-nums td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.dial-nums td {
+  width: 33.3%;
+  font-size: 28pt;
+  color: #333;
+  text-align: right;
+  cursor: pointer;
+}
+
+.dial-nums td span {
+  float: right;
+  margin-top: 15px;
+  margin-right: 8px;
+}
+
+.call-number {
+  width: 99.5%;
+  margin-top: -35px;
+  text-align: center;
+  padding-top: 50px;
+  height: 100px;
+  font-size: 36pt;
+  float: left;
+  color: green;
+  border: 1px solid black;
+  border-bottom: none;
+  margin-left: -10px;
+  margin-bottom: 0px;
+}
+
+.power {
+  background-color: silver;
+  width: 50px;
+  height: 6px;
+  border: 1px solid grey;
+  position: absolute;
+  margin-left: 300px;
+  margin-top: -19px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  cursor: pointer;
+}
+
+.power:active {
+  height: 4px;
+  margin-top: -17px;
+}
+
+#navbar {
+  width: 375px;
+  height: 30px;
+  display: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  opacity: 1;
+  position: relative;
+  background-color: #35c9ea;
+  margin-left: -20px;
+  cursor: pointer;
+}
+
+.battery {
+  width: 30px;
+  height: auto;
+  float: right;
+  margin-right: 10px;
+}
+
+#navbar #text {
+  font-family: Segoe UI;
+  font-size: 14pt;
+  float: left;
+  margin-left: 12px;
+  margin-top: 2px;
+  color: black;
+}
+
+.call-icon {
+  width: 40px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: calc(50% - 30px);
+  cursor: pointer;
+}
+
+#messaging-screen {display: none}
+
+#text-area {
+  width: 300px;
+  margin-left: -305px;
+  resize: none;
+  outline: none;
+  height: 75px;
+  overflow: hidden;
+  margin-top: 280px;
+  font-size: 14pt;
+  font-family: Times;
+  border-radius: 2px;
+  position: fixed;
+  border: 1px solid grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 4px;
+}
+
+.text-icon {
+  width: 40px;
+  height: auto;
+  float: right;
+  position: fixed;
+  margin-top: 285px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.check-pin {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 0 0 10px grey;
+  margin-top: 10px;
+  width: 80px;
+  font-size: 14pt;
+  cursor: pointer;
+  height: 30px;
+}
+
+.check-pin:active {box-shadow: 0 0 10px grey inset}
+
+.text-info {
+  width: 84%;
+  margin-left: -13px;
+  resize: none;
+  outline: none;
+  height: 25px;
+  margin-top: -35px;
+  border: 1px solid grey;
+  font-size: 14pt;
+  font-family: Times;
+  border-radius: 5px;
+  padding-left: 5px;
+  overflow-x: hidden;
+}
+
+#text-messenger {
+  margin-top: 2px;
+}
+
+#text-table td {
+  width: 150px;
+  max-width: 150px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: auto;
+  color: white;
+  font-size: 14pt;
+  padding-left: 5px;
+  padding-top: 5px;
+  border-radius: 5px;
+  background-color: green;
+}
+
+#text-table {
+  float: right;
+  margin-top: 5px;
+  max-height: 100px;
+}
+
+#text-table td {
+  padding-bottom: 10px;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="phone-body">
+  <div class="power" onclick="power()"></div>
+  <p class="company">Jaxon Phone</p>
+  <div id="screen">
+    
+    <!-- NAVBAR --------------------->
+    
+    <div id="navbar">
+      <span id="text">Horizon &#x2713;</span>
+      <img src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519973-036_Battery-128.png" class="battery">
+      <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/589920-200.png" class="battery">
+    </div>
+    
+    <!-- LOCK SCREEN ---------------->
+    
+    <div id="lock-screen">
+      <p id="time"></p>
+      &nbsp;Enter Pin:&nbsp;
+      <br>
+      <input type="password" maxlength="8" id="pin">
+      <br>
+      <button onclick="checkPin('password')" class="check-pin">Enter</button>&nbsp;
+    </div>
+    
+    <!-- HOME SCREEN ---------------->
+    
+    
+    <div id="on-screen">
+      <img src="https://4.bp.blogspot.com/-V0xe9mxA0cQ/VSV_OKHB55I/AAAAAAAAKwY/YFdh1SCpF-s/s1600/icon_launcher_browser.png" class="icon">
+      <img src="https://cdn1.iconfinder.com/data/icons/style-2-stock/807/Contacts-01.png" class="icon" onclick="contact()">
+      <img src="http://www.kunstbilder-galerie.de/skin/frontend/default/theme229k/images/tel.png" class="icon" onclick="call()">
+      <img src="https://www.butzel.com/wp-content/themes/ahhhaweb/images/Line-green-email-icon-1.png" class="icon" onclick="text()">
+    </div>
+    
+    <!-- CONTACT SCREEN ------------->
+    
+    <div id="contact-screen">
+      <p class="contact-title">Contacts</p>
+      <table id="myTable" class="contacts">
+        <tr>
+          <td class="name">Jackson Isenberg</td>
+          <td class="number" id="0">770-668-6875</td>
+          <td>
+            <a class="text"><img src="https://cdn0.iconfinder.com/data/icons/Android-R2-png/512/Messages-Android-R.png" id="textNum" onclick="textContact('0')"></a>
+          </td>
+          <td>
+            <a class="call"><img src="https://cdn3.iconfinder.com/data/icons/stroke/53/Phone-512.png" id="textNum" onclick="callContact('0')"></a>
+          </td>
+        </tr>
+      </table>
+      <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/100860-200.png" onclick="addContact()" class="contact-add">
+    </div>
+    
+    <!-- CALL SCREEN ---------------->
+    
+    <div id="call-screen">
+      <p class="contact-title">Call</p>
+      <p class="call-number" id="call-output"></p>
+      <table class="dial-nums">
+        <tr>
+          <td onclick="callNum(1)" style="text-align: center;">1</td>
+          <td onclick="callNum(2)">2 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">ABC</span></td>
+          <td onclick="callNum(3)">3 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">DEF</span></td>
+        </tr>
+        <tr>
+          <td onclick="callNum(4)">4 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">GHI</span></td>
+          <td onclick="callNum(5)">5 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">JKL</span></td>
+          <td onclick="callNum(6)">6 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">MNO</span></td>
+        </tr>
+        <tr>
+          <td onclick="callNum(7)">7 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace; margin-right: 0px;">PQRS</span></td>
+          <td onclick="callNum(8)">8 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace;">TUV</span></td>
+          <td onclick="callNum(9)">9 &nbsp; <span style="color: grey; font-size: 10pt; font-family: monospace; margin-right: 0px;">WXYZ</span></td>
+        </tr>
+        <tr>
+          <td onclick="callNum('-')" style="text-align: center;">-</td>
+          <td onclick="callNum(0)" style="text-align: center;">0</td>
+          <td onclick="backNum()" style="text-align: center;"><img src="http://jaxon.randume.org/images/backspace.png" style="width: 25px; height: auto; margin-top: -15px;"></td>
+        </tr>
+      </table>
+      <a id="callBtn"><img src="https://cdn4.iconfinder.com/data/icons/social-icons-6/40/phone-512.png" class="call-icon" onclick="callNumber()"></a>
+    </div>
+    
+    <!-- MESSAGING SCREEN ----------->
+    
+    <div id="messaging-screen">
+      <p class="contact-title" style="margin-bottom: 15px;">Text</p>
+      <input class="text-info" id="text-recip" maxlength="12" placeholder="Recipient" type="text">
+      <input maxlength="12" class="text-info" id="text-messenger" placeholder="Messenger" type="text">
+      <table id="text-table">
+      </table>
+      <textarea id="text-area" maxlength="50" placeholder="Type your message..."></textarea>
+      <img src="https://image.flaticon.com/icons/png/512/1/1454.png" class="text-icon" onclick="textMessage()">
+    </div>
+  </div>
+  <div id="home" onclick="home()"></div>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  
+      <script id="rendered-js" >
+var powerOn = false;
+var logOn = false;
+
+function home() {
+  if (powerOn == false) {
+    powerOn = true;
+    document.getElementById("screen").style.backgroundImage =
+    'url("http://www.idownloadblog.com/wp-content/uploads/2013/09/126@2xiphone.png")';
+    document.getElementById("screen").style.backgroundSize = "380px 480px";
+    document.getElementById("lock-screen").style.display = "block";
+    document.getElementById("on-screen").style.display = "none";
+    document.getElementById("navbar").style.display = "block";
+  } else if (powerOn == true && logOn == true) {
+    document.getElementById("contact-screen").style.display = "none";
+    document.getElementById("call-screen").style.display = "none";
+    document.getElementById("messaging-screen").style.display = "none";
+    document.getElementById("on-screen").style.display = "block";
+    document.getElementById("home-screen").style.display = "block";
+    document.getElementById("screen").style.backgroundImage =
+    'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfNhRPh8SaxlIOoNhi-l_HCoMjPWiGJIAFgaOzIFuqGCqb5cNg")';
+    document.getElementById("screen").style.backgroundSize = "380px 480px";
+    document.getElementById("screen").style.backgroundColor = "black";
+  }
+}
+
+function power() {
+  if (powerOn == false) {
+    powerOn = true;
+    document.getElementById("screen").style.backgroundImage =
+    'url("http://www.idownloadblog.com/wp-content/uploads/2013/09/126@2xiphone.png")';
+    document.getElementById("screen").style.backgroundSize = "380px 480px";
+    document.getElementById("lock-screen").style.display = "block";
+    document.getElementById("on-screen").style.display = "none";
+    document.getElementById("navbar").style.display = "block";
+  } else {
+    document.getElementById("contact-screen").style.display = "none";
+    document.getElementById("call-screen").style.display = "none";
+    document.getElementById("on-screen").style.display = "none";
+    document.getElementById("lock-screen").style.display = "none";
+    document.getElementById("navbar").style.display = "none";
+    document.getElementById("messaging-screen").style.display = "none";
+    document.getElementById("home-screen").style.display = "none";
+    logOn = false;
+    powerOn = false;
+    document.getElementById("screen").style.backgroundImage = 'url("")';
+    document.getElementById("screen").style.backgroundColor = "black";
+    document.getElementById("pin").value = "";
+  }
+}
+
+function checkPin(pin) {
+  if (document.getElementById("pin").value == pin) {
+    console.log("CORRECT");
+    logOn = true;
+    document.getElementById("lock-screen").style.display = "none";
+    document.getElementById("on-screen").style.display = "block";
+    document.getElementById("home-screen").style.display = "block";
+    document.getElementById("screen").style.backgroundImage =
+    'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfNhRPh8SaxlIOoNhi-l_HCoMjPWiGJIAFgaOzIFuqGCqb5cNg")';
+  } else {
+    console.log("WRONG");
+    logOn = false;
+  }
+}
+
+var date = new Date();
+var hours = date.getHours();
+var h = hours;
+var minutes = date.getMinutes();
+var min = minutes;
+if (minutes === 0) {
+  min = "00";
+} else if (minutes === 1) {
+  min = "01";
+} else if (minutes === 2) {
+  min = "02";
+} else if (minutes === 3) {
+  min = "03";
+} else if (minutes === 4) {
+  min = "04";
+} else if (minutes === 5) {
+  min = "05";
+} else if (minutes === 6) {
+  min = "06";
+} else if (minutes === 7) {
+  min = "07";
+} else if (minutes === 8) {
+  min = "08";
+} else if (minutes === 9) {
+  min = "09";
+}
+document.getElementById("time").innerHTML = h + ":" + min;
+
+function contact() {
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundImage = 'url("")';
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundColor = "white";
+  document.getElementById("contact-screen").style.display = "block";
+}
+
+var numToText = 0;
+
+function textContact(num) {
+  var number = document.getElementById(num).innerHTML;
+  number = number.split("-").join("");
+  numToText = number;
+  document.
+  querySelectorAll("a.text")[num].
+  setAttribute("href", "sms:+" + numToText);
+}
+
+var numToCall = 0;
+
+function callContact(num) {
+  var number = document.getElementById(num).innerHTML;
+  number = number.split("-").join("");
+  numToCall = number;
+  document.
+  querySelectorAll("a.call")[num].
+  setAttribute("href", "tel:+" + numToCall);
+}
+
+var numOfContacts = 1;
+
+function addContact() {
+  if (numOfContacts == 8) console.log("Cannot add more contacts");else
+  {
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell1.innerHTML =
+    '<input type="text" class="newName" maxlength="13" style="overflow: hidden; outline: none;">';
+    cell2.innerHTML =
+    '<input type="text" class="newNumber" maxlength="12" style="overflow: hidden; outline: none;">';
+    cell3.innerHTML = "";
+    cell4.innerHTML =
+    '<img src="http://jaxon.randume.org/images/delete2" id="textNum" onclick="deleteContact()">';
+    numOfContacts++;
+  }
+}
+
+function deleteContact() {
+  var table = document.getElementById("myTable");
+  var row = table.deleteRow(0);
+  numOfContacts--;
+}
+
+function call() {
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundImage = 'url("")';
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundColor = "white";
+  document.getElementById("call-screen").style.display = "block";
+  document.getElementById("home-screen").style.display = "none";
+}
+
+function callNum(num) {
+  var output = document.getElementById("call-output");
+  output.innerHTML += num;
+}
+
+function backNum() {
+  var length = document.getElementById("call-output").innerHTML.split("");
+  length.length--;
+  var output = document.getElementById("call-output");
+  output.innerHTML = length.join("");
+}
+
+function callNumber() {
+  var output = document.getElementById("call-output").innerHTML;
+  output = output.split("-").join("");
+  document.getElementById("callBtn").setAttribute("href", "tel:+" + output);
+}
+
+function text() {
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundImage = 'url("")';
+  document.getElementById("on-screen").style.display = "none";
+  document.getElementById("screen").style.backgroundColor = "white";
+  document.getElementById("home-screen").style.display = "none";
+  document.getElementById("messaging-screen").style.display = "block";
+}
+
+var row = 0;
+function textMessage() {
+  if (row < 2) {
+    var textTable = document.getElementById("text-table");
+    var textRow = textTable.insertRow(row);
+    var textMessage = document.getElementById("text-area").value;
+    var textCell = textRow.insertCell(0);
+    textCell.innerHTML = textMessage;
+    row++;
+  } else {
+    var textTable = document.getElementById("text-table");
+    var textMessage = document.getElementById("text-area").value;
+    var textRow_1 = textTable.rows[0];
+    var textCell_1 = textRow_1.cells[0];
+    var textRow_2 = textTable.rows[1];
+    var textCell_2 = textRow_2.cells[0];
+    textCell_1.innerHTML = textCell_2.innerHTML;
+    textCell_2.innerHTML = textMessage;
+  }
+}
+
+function arrMain(pos) {
+  if (pos == "left") {
+    document.getElementById("on-screen").innerHTML = '<img src="http://icons.iconarchive.com/icons/blackvariant/button-ui-system-apps/1024/Stickies-2-icon.png" class="icon"><img src="http://www.pua.edu.eg//userfiles/icon-circle-email-a0d3582419dad629ae58c6df5d84413e201512991925.png" class="icon">';
+    document.getElementById("arr-left").style.display = "none";
+    document.getElementById("arr-right").setAttribute("onclick", "arrSub('right')");
+  } else if (pos == "right") {
+    document.getElementById("on-screen").style.display = '<img src="https://lh3.googleusercontent.com/DPKR9wd6oDY6dbsJum0AwEq1Od7wHH1AuccSg7qI_E643rgCgH7CPotucBEh_qLO40kx=w300" class="icon">';
+    document.getElementById("arr-right").style.display = "none";
+    document.getElementById("arr-left").setAttribute("onclick", "arrSub('left')");
+  }
+}
+
+function arrSub(pos) {
+  if (pos == "right") {
+    document.getElementById("on-screen").style.display = "block";
+    document.getElementById("arr-left").style.display = "block";
+    document.getElementById("arr-right").setAttribute("onclick", "arrMain('right')");
+  } else if (pos == "left") {
+    document.getElementById("on-screen").style.display = "block";
+    document.getElementById("arr-right").style.display = "block";
+    document.getElementById("arr-left").setAttribute("onclick", "arrMain('left')");
+  }
+}
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
