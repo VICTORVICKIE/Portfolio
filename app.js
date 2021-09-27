@@ -95,7 +95,6 @@ monitor.addEventListener('click', (e) => {
 	container.classList.add('open');
 	header.style.opacity = 0;
 	underscore.style.opacity = 0;
-	console.log(image.clientWidth, image.clientHeight);
 
 });
 

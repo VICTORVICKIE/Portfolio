@@ -133,7 +133,6 @@ section{
   max-width: 420px;
   opacity: 0;
   pointer-events: none;
-   /*left: -50%; */
   z-index: 2;
 }
 .tooltip-content .arrow{
