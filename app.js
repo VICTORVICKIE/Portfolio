@@ -3,6 +3,7 @@ $(document).ready(function(e) {
 	// $('img[usemap]').maphilight();
 });
 
+//added by dd
 
 console_text(words = ["VK's Portfolio", "VK's Résumé"], id = "Title", 
 						colors = [["#eee", "#333"],
